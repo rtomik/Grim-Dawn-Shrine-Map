@@ -1,0 +1,28 @@
+-146.4375, 183.0625, img/foggybank.png, //foggybank k
+-104.5, 182.75, img/warden.png, //wardens lab k
+-111.5, 181.625, img/burrwitchestates.png, //burrwitch estates
+-117.5625, 210.3125, img/marsh.png, //East marsh k
+-131.625, 179.25, img/burrwitch.png, //burrwitch outskirts k
+-134.75, 196.125, img/flooded.png, //flooded k
+-162.375, 181.625, img/burial.png, //burial hill k
+-179.5, 180, img/devil.png, //devil crossing k
+-172.25, 156.625,img/arkovian.png,//arkovian k
+-65.1875, 7.5, img/asterkarn.png,//asterkarn valley k
+-158.625, 152.25, img/rocky.png, //rocky coast k
+-175.5, 136.1875, img/steps.png, //steps of torment k
+-151.125, 154.0625, img/Cronley.png, //Cronley hideout k
+-151.6875, 138.875, img/undercity.png, //undercity k
+-158.6875, 140.3125, img/old arkovia.png,//old arkovia k
+-162.8125, 119.875, img/barren.png, barren k
+-142.875, 124.9375, img/tyrants.png, //tyrants k
+-151.8125, 85.4375, img/mountain.png, //mountain deeps k
+-131.625, 91, img/croplands.png, //infested farms k
+-129.9375, 77.25, img/denofthelost.png, //den of the lost k
+-110.375, 84.0625, img/bloodgrove.png, bloodgrove k
+-87, 66.875, img/darkvale.png, //darkvale k
+-67.4375, 22.0625, img/valley.png, //valley k
+-22, 51.0625, img/BlackSepulcher.png, //Black Sepulcher k
+-17.375, 45.3125, img/gate.jpg, //necropolis k
+-7.875, 30.375, img/bastion.png, //bastion k
+-151, 114, img/shaded.png, //shaded basin k
+-51.75, 10, img/losttomb.png, //lost tomb k

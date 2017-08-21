@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86799552-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4402518829500161",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- grimdawn -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px;position: absolute;bottom:0"
+     data-ad-client="ca-pub-4402518829500161"
+     data-ad-slot="1991585134"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<meta charset="utf-8">
+<title>Grim Dawn Shrine Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+<link rel="stylesheet" type="text/css"  href="style/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "Grim Dawn Shrine Map",
+    "description": "Easy to use game map with location of all shrines in game Grim Dawn",
+    "publisher": {
+        "@type": "Person",
+        "name": "Richard Tomik"
+    },
+    "license": "none"
+}
+</script>
+</head>
+<body>
+<div id="image-map" class="map"></div>
+<script>
+//custom leaflet button code from http://www.coffeegnome.net/control-button-leaflet/
+var customControl =  L.Control.extend({
+
+  options: {
+    position: 'topleft'
+  },
+
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+    container.style.backgroundColor = 'white';     
+    container.style.backgroundImage = "url(http://www.uidownload.com/files/568/707/636/estate-home-house-real-icon.png)";
+    container.style.backgroundSize = "60px 60px";
+    container.style.width = '60px';
+    container.style.height = '60px';
+
+    container.onclick = function(){
+        map.setMaxBounds(bounds);
+      console.log('buttonClicked');
+    }
+
+    return container;
+  }
+});
+
+var readyState = function(e){
+  map = new L.Map('map').setView([48.935, 18.14], 14);
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  map.addControl(new customControl());
+}
+
+window.addEventListener('DOMContentLoaded', readyState); 
+
+//---------------------------------------------------------------------------//
+
+// Using leaflet.js to pan and zoom a big image.
+// code from http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+// create the slippy map
+
+var map = L.map('image-map',{
+  minZoom: 1,
+  maxZoom: 4,
+  center: [-87, 132],
+  zoom: 1.5,
+  crs: L.CRS.Simple
+});
+
+// dimensions of the image
+var w = 2000,
+    h = 1500,
+    url = 'img/main.jpg';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+
+var stringData = $.ajax({
+    url: "a.txt",
+    async: false
+}).responseText;
+//Split values of string data                                                                    
+var stringArray = stringData.split("\n");
+var arrayLength = stringArray.length;
+
+
+var layerGroup1 = L.layerGroup().addTo(map);
+var layerGroup2 = L.layerGroup().addTo(map);
+var layerGroup3 = L.layerGroup().addTo(map);
+    
+for(var i = 0; i < arrayLength; i++) {
+    var x = $.trim(stringArray[i].split(",")[0]);
+    var y = $.trim(stringArray[i].split(",")[1]);
+    var img2 = $.trim(stringArray[i].split(",")[2]);
+ 
+    var circle = L.circle([x,y], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.3,
+        radius: 2,
+    }).addTo(map).addTo(layerGroup1);
+    circle.url = img2
+    circle.on('click', function(){
+    window.location = (this.url);
+    });
+
+
+  if((img2 === "img/burial.png")||(img2 === "img/marsh.png")||(img2 === "img/burrwitchestates.png")||(img2 === "img/warden.png")||(img2 === "img/foggybank.png")||(img2 === "img/arkovian.png")||(img2 === "img/steps.png")||(img2 === "img/rocky.png")||(img2 === "img/Cronley.png")||(img2 === "img/old arkovia.png")||(img2 === "img/tyrants.png")||(img2 === "img/denofthelost.png")||(img2 === "img/darkvale.png")||(img2 === "img/valley.png")||(img2 === "img/losttomb.png")||(img2 === "img/BlackSepulcher.png")||(img2 === "img/bastion.png")){
+       var circle2 = L.circle([x,y], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.2,
+        radius: 2,
+    }).addTo(map).addTo(layerGroup2);
+    circle2.url = img2
+    circle2.on('click', function(){
+    window.location = (this.url);
+  });
+  }
+
+  if((img2 === "img/warden.png")||(img2 === "img/marsh.png")||(img2 === "img/foggybank.png")||(img2 === "img/Cronley.png")||(img2 === "img/undercity.png")||(img2 === "img/steps.png")||(img2 === "img/tyrants.png")||(img2 === "img/denofthelost.png")||(img2 === "img/darkvale.png")||(img2 === "img/valley.png")||(img2 === "img/losttomb.png")||(img2 === "img/BlackSepulcher.png")||(img2 === "img/bastion.png")||(img2 === "img/BlackSepulcher.png")){
+       var circle3 = L.circle([x,y], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.2,
+        radius: 2,
+    }).addTo(map).addTo(layerGroup3);
+    circle3.url = img2
+    circle3.on('click', function(){
+    window.location = (this.url);
+  });
+  }
+
+}
+var overlayMaps = {
+    "Normal": layerGroup1,
+    "Elite": layerGroup2,
+    "Ultimate": layerGroup3
+};
+L.control.layers(overlayMaps, null).addTo(map);
+
+// add the image overlay, 
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+
+
+map.addControl(new customControl());
+
+</script>
+</body>
+</html>
