@@ -56,24 +56,7 @@ background-color: #586290;
 		ul li {
 			display: inline-block;
 		}
-		ul li:hover {
-			background: #555;
-		}
-		ul li:hover ul {
-			display: block;
-		}
-		ul li ul {
-			position: absolute;
-			width: 200px;
-			display: none;
-		}
-		ul li ul li {
-			background: #555;
-			display: block;
-		}
-		ul li ul li a {
-			display: block !important;
-		}
-		ul li ul li:hover {
-			background: #666;
-		}
+	
+	
+
+	
