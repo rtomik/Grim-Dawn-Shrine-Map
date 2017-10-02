@@ -33,8 +33,7 @@ div a {
     border-radius:15px;
     display:none; 
     padding:20px;
-    min-width:500px;
-    min-height: 280px;
+   margin-bottom: 50%;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
