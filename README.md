@@ -1,2 +1,1 @@
-[https://totalnooob.github.io/grimdawn/
-](https://totalnooob.github.io/Grim-Dawn-Shrine-Map/)
+https://rtomik.github.io/Grim-Dawn-Shrine-Map/
